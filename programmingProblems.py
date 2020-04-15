@@ -1,7 +1,7 @@
 
 
 #Fibonacci Sequence 
-a,b = 0,1
+
 for i in range(0,45):
     if i % 2 !=0:
         print(i, end = "")
@@ -15,11 +15,12 @@ def get_resident_Prov_on(file_name, prov_name):
     for line in csv:
         print(line)
         first, last, address, province = line.split(',')
-        province_s = province.replace(" ", "")
+
+        province = province.rstrip()
       
-        if province_s not in data:
-            data[province_s] = []
-        data[province_s].append(first)
+        if province not in data:
+            data[province] = []
+        data[province].append(first)
     print(data.get(prov_name))
     return data.get(prov_name)
 
